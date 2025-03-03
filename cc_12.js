@@ -51,3 +51,18 @@ function removeItem(li) { //create a new function that takes li as a parameter
 
 newItem("apple");
 newItem("orange"); //test data
+
+//Task 4: Business Customer Section.
+const customerSection = document.getElementById("customerSection"); //create a constant equal to the element in the document that has the id "customerSection"
+customerSection.addEventListener("click", function() { //adds an event listener to the constant (element with customerSection id), it checks for a click and executes a function
+    console.log("Parent container clicled."); //log a message notifying that the parent container was clicked
+});
+
+const customerCard = document.querySelectorAll(".customer-card"); //create a constant equal to the element in the document that has the class "customer-card"
+customerCard.forEach(c => { //this returns an array, using the forEach method,
+    c.addEventListener("click", function(e) { //add an event listener to each instance, checking for a click and executing a function where
+        console.log("Customer card clicked."); //the notification is logged to the console
+        e.stopPropagation(); //then, this code stops propogation. In other words, when an event triggers on a child node that's under something in the DOM tree, the parent elements' event listeners are triggered.
+    });
+});
+
